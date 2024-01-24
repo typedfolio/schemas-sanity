@@ -1,3 +1,10 @@
+# Package lock
+package-lock.json
+yarn.lock
+
+# Sanity deployments
+.sanity
+
 # Logs
 logs
 *.log
