@@ -12,7 +12,7 @@ export const dataset = "production" /*assertValue(
   'Missing environment variable: NEXT_PUBLIC_SANITY_DATASET'
 )*/
 
-export const projectId = "7p24pzy8" /*= assertValue(
+export const projectId = "<INSERT-SANITY-PROJECT-ID>" /*= assertValue(
   process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   'Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID'
 )*/
