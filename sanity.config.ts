@@ -20,8 +20,8 @@ import { languageFilter } from '@sanity/language-filter';
 const internationalizedSchemaTypes = ['profile']
 
 export default defineConfig({
-  name: 'typefolio',
-  title: '@typefolio',
+  name: 'typedfolio',
+  title: '@typedfolio',
   icon: VscTypeHierarchy,
 
   projectId,
