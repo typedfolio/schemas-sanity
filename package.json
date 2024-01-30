@@ -15,6 +15,7 @@
     "sanity", "typedfolio"
   ],
   "dependencies": {
+    "@sanity/client": "^6.12.1",
     "@sanity/document-internationalization": "^2.0.2",
     "@sanity/language-filter": "^3.2.1",
     "@sanity/vision": "^3.15.0",
@@ -25,6 +26,7 @@
     "rxjs": "^7.8.1",
     "sanity": "^3.23.4",
     "sanity-plugin-asset-source-unsplash": "^1.1.2",
+    "sanity-plugin-computed-field": "^2.0.1",
     "sanity-plugin-internationalized-array": "^1.10.4",
     "sanity-plugin-media": "^2.2.2",
     "styled-components": "^5.3.9"
