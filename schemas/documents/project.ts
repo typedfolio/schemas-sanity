@@ -31,6 +31,17 @@ export default defineType({
         validation: (Rule) => Rule.required().error('The name of the project is mandatory.'),
       },
       {
+        name: 'slug',
+        type: 'slug',
+        title: 'Slug',
+        description: 'A slug is a unique identifier for this project. It is used in the URL of the project page.',
+        options: {
+          source: 'name',
+          maxLength: 96,
+        },
+        validation: (Rule) => Rule.required().error('The slug of the project is mandatory.'),
+      },
+      {
         name: 'webURL',
         title: 'Project URL',
         type: 'url',

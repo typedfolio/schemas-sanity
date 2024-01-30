@@ -17,8 +17,8 @@ export default defineType({
       },
       prepare: ({ authorType, personName, organisationName, orcid, image }) => {
           return {
-              title: authorType === 'Person' ? (typeof personName.givenNames!=='undefined' ? `${personName.familyName}, ${personName.givenNames.join(' ')}` : `${personName.familyName}`) : organisationName,
-              subtitle: authorType === 'Person' ? typeof orcid!=='undefined' ? `${authorType} (${orcid})` : `${authorType}` : authorType,
+              title: authorType === 'person' ? (typeof personName.givenNames!=='undefined' ? `${personName.familyName}, ${personName.givenNames.join(' ')}` : `${personName.familyName}`) : organisationName,
+              subtitle: authorType === 'person' ? typeof orcid!=='undefined' ? `${authorType} (${orcid})` : `${authorType}` : authorType,
               media: image,
           }
       },
@@ -31,8 +31,8 @@ export default defineType({
         description: 'Identify the type of author.',
         options: {
           list: [
-              {title: 'Person', value: 'Person'}, 
-              {title: 'Organisation', value: 'Organisation'},
+              {title: 'Person', value: 'person'}, 
+              {title: 'Organisation', value: 'organisation'},
             ],
             layout: 'radio',
         },
@@ -43,7 +43,7 @@ export default defineType({
         title: 'Name',
         type: 'personName',
         description: 'Name of the author.',
-        hidden: ({ document }) => (document?.authorType !== 'Person'),
+        hidden: ({ document }) => (document?.authorType !== 'person'),
         validation: (Rule) => Rule.required().error('Name of the author is mandatory.'),
       },
       {
@@ -51,10 +51,10 @@ export default defineType({
         title: 'Name',
         type: 'string',
         description: 'Name of the organisation.',
-        hidden: ({ document }) => (document?.authorType !== 'Organisation'),
+        hidden: ({ document }) => (document?.authorType !== 'organisation'),
         validation: [
             (Rule) => Rule.custom((fieldValue, context) => {
-                if (context.document?.authorType === 'Organisation' && typeof fieldValue === 'undefined') {
+                if (context.document?.authorType === 'organisation' && typeof fieldValue === 'undefined') {
                     return 'Name of the organisation is mandatory.'
                 }
                 return true        
@@ -66,9 +66,9 @@ export default defineType({
         title: 'ORCiD of the author',
         type: 'string',
         description: 'Optional ORCiD of the author.',
-        hidden: ({ document }) => (document?.authorType !== 'Person'),
+        hidden: ({ document }) => (document?.authorType !== 'person'),
         validation: (Rule) => Rule.custom((fieldValue, context) => {
-          if (context.document?.authorType === 'Person') {
+          if (context.document?.authorType === 'person') {
             if (typeof fieldValue === 'undefined') {
                 return true // allow empty ORCiD
             }
@@ -90,7 +90,7 @@ export default defineType({
         title: 'Website URL',
         type: 'url',
         description: 'Optional website of the author.',
-        //hidden: ({ document }) => (document?.authorType !== 'Person'),
+        //hidden: ({ document }) => (document?.authorType !== 'person'),
         validation: (Rule) => Rule.uri({
           scheme: ['http', 'https'],
           allowRelative: false,
