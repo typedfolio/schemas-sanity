@@ -19,7 +19,6 @@ export const schemaTypes = [
     researchPublication,
     skill,
     languageSkill,
-    post,
     picture,
     project,
     contributionAuthor,
